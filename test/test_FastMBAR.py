@@ -11,7 +11,7 @@ def test_FastMBAR():
     num_states_nz = 10 ## num of states with nonzero num of samples
     num_states_z = 2 ## num of states with zero samples
     num_states = num_states_nz + num_states_z
-    num_conf = np.array([5000 for i in range(num_states_nz)] +
+    num_conf = np.array([50000 for i in range(num_states_nz)] +
                         [0 for i in range(num_states_z)])
     mu = np.random.normal(0, 4, size = num_states) ## equalibrium positions
     sigma = np.random.uniform(1, 3, size = num_states) ## sqrt of 1/k

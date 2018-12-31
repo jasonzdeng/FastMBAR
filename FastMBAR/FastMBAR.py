@@ -128,14 +128,14 @@ class FastMBAR():
         sample_prop_nz = self.num_conf_nz / torch.sum(self.num_conf_nz)
         self.F_nz = -torch.log(sample_prop_nz) - self.bias_energy_nz
 
-        ## normalize free energies
-        prob_nz = torch.exp(-self.F_nz)
-        prob_nz = prob_nz / torch.sum(prob_nz)
-        self.F_nz = -torch.log(prob_nz)
+        # ## normalize free energies
+        # prob_nz = torch.exp(-self.F_nz)
+        # prob_nz = prob_nz / torch.sum(prob_nz)
+        # self.F_nz = -torch.log(prob_nz)
 
-        ## update bias energies for states with nonzero number of samples
-        ## using normalized free energies
-        self.bias_energy_nz = -torch.log(sample_prop_nz) - self.F_nz
+        # ## update bias energies for states with nonzero number of samples
+        # ## using normalized free energies
+        # self.bias_energy_nz = -torch.log(sample_prop_nz) - self.F_nz
 
         ## calculate free energies for states with zero number of samples
         self.F = self.bias_energy_nz.new(self.num_states)
